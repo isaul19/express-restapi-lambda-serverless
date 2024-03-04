@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "serverless offline start",
+    "dev": "serverless offline start --reloadHandler",
+    "deploy": "rm -rf node_modules && npm install --omit=dev && serverless deploy && npm install"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,9 @@
   "dependencies": {
     "express": "^4.18.2",
     "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-offline": "^13.3.3"
   }
 }

@@ -8,14 +8,10 @@ export class Server {
     this.#routes();
   }
 
-  get application() {
-    return this.#app;
-  }
-
   #routes() {
     this.#app.get("/hello", (req, res) => {
       res.status(200).json({
-        message: "Hello World",
+        message: "Hello",
       });
     });
 
@@ -29,5 +25,9 @@ export class Server {
   #middlewares() {
     this.#app.use(express.json());
     this.#app.use(express.urlencoded({ extended: true }));
+  }
+
+  get application() {
+    return this.#app;
   }
 }
